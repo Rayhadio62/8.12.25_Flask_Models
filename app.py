@@ -71,3 +71,8 @@ class Mechanics(Base):
     
     service_tickets: Mapped[list["Service_Tickets"]] = relationship("Service_Tickets", secondary=service_mechanics, 
                                                                     back_populates="mechanics")
+
+with app.app_context():
+    db.create_all()
+
+app.run()
